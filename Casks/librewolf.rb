@@ -1,41 +1,29 @@
 cask "librewolf" do
+  arch = Hardware::CPU.intel? ? "" : "_aarch64_exp"
+
   if Hardware::CPU.intel?
-    version "93.0-1,9324cabdb1a0677c6a2ed5847ccb5eb8"
-    sha256 "83cba39c5caca5b4f642b4f2c70c806a909200f189dba70ebfddd5060b162949"
-
-    url "https://gitlab.com/librewolf-community/browser/macos/uploads/#{version.after_comma}/librewolf-#{version.before_comma}.dmg",
-        verified: "gitlab.com/librewolf-community/browser/macos/"
-
-    livecheck do
-      url "https://gitlab.com/api/v4/projects/13853965/releases"
-      regex(%r{"url"\s*:\s*"[^"]*?/(\h+)/librewolf[._-]v?(\d+(?:\.\d+)+(?:-\d+)?)(?:[._-]x86)?\.dmg"}i)
-      strategy :page_match do |page, regex|
-        page.scan(regex).map do |match|
-          "#{match[1]},#{match[0]}"
-        end
-      end
-    end
+    version "94.0.1-1,0c876ea262cdcb0e0ca66008910fd365"
+    sha256 "e1ecc2241143198a0d28fe1c5b7c747de527af4eb87b4a059fd8956f639017b0"
   else
-    version "93.0-1,e092796aa6d554c4bbe5687426e06bb1"
-    sha256 "ff420b2058ab241df556e35b0e74433afd825a8bc9e139d56338cd7618bc3d35"
+    version "94.0.1-1,9c7169696cb8e2648963b3be645243e4"
+    sha256 "8d206af66774268a2429995d423c108cb57f566878b591d9fda7fd5b4a96f48d"
+  end
 
-    url "https://gitlab.com/librewolf-community/browser/macos/uploads/#{version.after_comma}/librewolf-#{version.before_comma}_aarch64_exp.dmg",
-        verified: "gitlab.com/librewolf-community/browser/macos/"
+  url "https://gitlab.com/librewolf-community/browser/macos/uploads/#{version.after_comma}/librewolf-#{version.before_comma}#{arch}.dmg",
+      verified: "gitlab.com/librewolf-community/browser/macos/"
+  name "LibreWolf"
+  desc "Web browser"
+  homepage "https://librewolf.net/"
 
-    livecheck do
-      url "https://gitlab.com/api/v4/projects/13853965/releases"
-      regex(%r{"url"\s*:\s*"[^"]*?/(\h+)/librewolf[._-]v?(\d+(?:\.\d+)+(?:-\d+)?)[._-]aarch64(?:[._-]exp)?\.dmg"}i)
-      strategy :page_match do |page, regex|
-        page.scan(regex).map do |match|
-          "#{match[1]},#{match[0]}"
-        end
+  livecheck do
+    url "https://gitlab.com/api/v4/projects/13853965/releases"
+    regex(%r{/(\w+\d+)/librewolf[._-](\d+(?:\.\d+)+(?:-\d+)?)#{arch}\.dmg}i)
+    strategy :page_match do |page, regex|
+      page.scan(regex).map do |match|
+        "#{match[1]},#{match[0]}"
       end
     end
   end
-
-  name "LibreWolf"
-  desc "Web browser"
-  homepage "https://librewolf-community.gitlab.io/"
 
   app "LibreWolf.app"
 

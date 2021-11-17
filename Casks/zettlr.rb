@@ -1,15 +1,15 @@
 cask "zettlr" do
   arch = Hardware::CPU.intel? ? "x64" : "arm64"
 
-  version "2.0.0"
+  version "2.0.3"
 
-  url "https://github.com/Zettlr/Zettlr/releases/download/v#{version}/Zettlr-#{version}-#{arch}.dmg"
   if Hardware::CPU.intel?
-    sha256 "af7f989046c93e955513522089d102435ccba4c63b1947dfd0d12151f8373ee9"
+    sha256 "6b52bc0affe1b2039dd8dff452117017ff7671bffadeebd04c04583adc0a1e2c"
   else
-    sha256 "132f008f3ae8b6b83dd8d65f84eab85722ef43f3243f67fa47589418e274c7c1"
+    sha256 "9bc555560f3c689bb869033276d5d173cb6e12e3ee3b2dae5439e3269ec06007"
   end
 
+  url "https://github.com/Zettlr/Zettlr/releases/download/v#{version}/Zettlr-#{version}-#{arch}.dmg"
   name "Zettlr"
   desc "Open-source markdown editor"
   homepage "https://github.com/Zettlr/Zettlr/"

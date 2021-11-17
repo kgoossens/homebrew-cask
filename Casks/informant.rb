@@ -1,12 +1,11 @@
 cask "informant" do
-  version "0.08.9.1"
-  sha256 "6e140462b09a9cc1f859fca06ab2e6efa8c5b2b3f7b7f4271b869516221ca8fd"
+  version "0.09.4"
+  sha256 "072d26903902652e6c8eae3b36e611675d95baaa11dd7c29c7664c854776bda0"
 
-  url "https://github.com/tyirvine/Informant/releases/download/#{version}/Informant.zip",
-      verified: "https://github.com/tyirvine/Informant/"
+  url "https://github.com/tyirvine/Informant/releases/download/#{version}/Informant.zip"
   name "Informant"
   desc "Inspect files with a single click"
-  homepage "https://informant-app.com/"
+  homepage "https://github.com/tyirvine/Informant/"
 
   depends_on macos: ">= :big_sur"
 

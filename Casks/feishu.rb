@@ -2,11 +2,11 @@ cask "feishu" do
   arch = Hardware::CPU.intel? ? "x64" : "arm64"
 
   if Hardware::CPU.intel?
-    version "4.10.5,f47950"
-    sha256 "3537cec5cf1756a6c77505ff16343a51e51becf5e6ea2b6ce236e4cc9f0d0b97"
+    version "4.11.14,57b437"
+    sha256 "d083a7d0cf53555687ea63db0608396ad8d3631f5ce6bfac9772653cbf20c474"
   else
-    version "4.10.5,9e0c63"
-    sha256 "5f75a13140b58d145f2c8e61909854dafcb30cbd259f095a248f660436981fb0"
+    version "4.11.14,204151"
+    sha256 "6a66b97a0393402481e44d92d07758d460064e8203c046481400493ac6841769"
   end
 
   url "https://sf3-cn.feishucdn.com/obj/ee-appcenter/#{version.after_comma}/Feishu-darwin_#{arch}-#{version.before_comma}-signed.dmg",

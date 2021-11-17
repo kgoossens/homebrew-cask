@@ -1,6 +1,6 @@
 cask "playcover" do
-  version "0.8.4"
-  sha256 "d54e32798ec209352f648c6535780323fe1c5c8572b081744b88d3c2483e19b0"
+  version "0.8.9"
+  sha256 "0a330ffedd068ea84385d5f97a08646d93637f4e0708c6a3cea7bd9f27af658a"
 
   url "https://github.com/iVoider/PlayCover/releases/download/#{version}/PlayCover.#{version}.zip",
       verified: "github.com/iVoider/PlayCover/"
@@ -10,7 +10,7 @@ cask "playcover" do
 
   depends_on arch: :arm64
 
-  app "#{version}b1/PlayCover.app"
+  app "PlayCover #{version}/PlayCover.app"
 
   zap trash: [
     "~/Library/Application Support/me.playcover.PlayCover",

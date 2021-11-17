@@ -1,15 +1,15 @@
 cask "calmly-writer" do
   arch = Hardware::CPU.intel? ? "x64" : "arm64"
 
-  version "2.0.34"
+  version "2.0.36"
 
-  url "https://www.calmlywriter.com/releases/#{arch}/Calmly%20Writer-#{version}.pkg"
   if Hardware::CPU.intel?
-    sha256 "da4216eb6328358e5043292ac6a241aa7d30353df64acfbde78c02e3e27774d2"
+    sha256 "08d57fdedee42b67aca3caae9815a867736c45960dfde95b191b76cfcd460950"
   else
-    sha256 "f72907c250e0666476e30341685c0b3364cbcc92d84c376a4cbe63594e53151e"
+    sha256 "3cc5240a4c43aad475a0a995eaed21ec8d72db07f886ab0cd132505f26524d8f"
   end
 
+  url "https://www.calmlywriter.com/releases/#{arch}/Calmly%20Writer-#{version}.pkg"
   name "Calmly Writer"
   desc "Word processor with markdown formatting and select themes"
   homepage "https://calmlywriter.com/"
